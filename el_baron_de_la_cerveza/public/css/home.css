@@ -4,6 +4,10 @@
 	margin: 40px auto;
 
 }
+.slider-products h2 {
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
 .carousel-cell {
   margin-right: 10px;
   border-radius: 5px;
