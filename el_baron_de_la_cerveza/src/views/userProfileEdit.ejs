@@ -41,14 +41,19 @@
 				<span id="streetErrors" class="opcional"><%= user.contacts[0]?.street ? "" : "Ingresá tu dirección para completar tu perfil"%></span>
 			</p>
 			<p>
+				<label for="province">Provincia</label>
+				<select name="province" id="province">
+					<% if (user.province) { %>
+						<option value="<%- user.province %>" hidden selected ><%- user.province %></option>
+					<% } else { %>
+						<option value="0" hidden selected >Seleccione su Provincia</option>
+					<% } %>
+				</select>
+			</p>
+			<p>
 				<label for="city">Ciudad</label>
 				<input id="city" type="text" name="city" placeholder="Ciudad" value="<%= user.contacts[0]?.city ? user.contacts[0].city : "" %>">
 				<span id="cityErrors" class="opcional"><%= user.contacts[0]?.city ? "" : "Ingresá tu ciudad para completar tu perfil"%></span>
-			</p>
-			<p>
-				<label for="city">Provincia</label>
-				<input id="province" type="text" name="province" placeholder="Provincia" value="<%= user.contacts[0]?.province ? user.contacts[0].province : "" %>">
-				<span id="provinceErrors" class="opcional"><%= user.contacts[0]?.province ? "" : "Ingresá tu provincia para completar tu perfil"%></span>
 			</p>
 			<span id="submitErrors"></span>
 			<p>
@@ -64,6 +69,7 @@
 <%- include("partials/footer")  %> 
 <!-- /FOOTER -->
 <script src="/js/validaciones/validationProfile.js"></script>
-<script src="/js/previewImage.js"></script>
+<script src="/js/validaciones/previewImage.js"></script>
+<script src="/js/editAccount.js"></script>
 </body>
 </html>

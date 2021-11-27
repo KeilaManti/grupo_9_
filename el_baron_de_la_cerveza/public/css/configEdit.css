@@ -18,6 +18,12 @@ main#config form p input {
     padding: 8px 10px;
     margin-top: 10px;
 }
+main#config form p select {
+    border: 1px solid var(--orange);
+    padding: 8px 10px;
+    margin-top: 10px;
+    background: white;
+}
 main#config form p input[value] {
     color: #333;
 }
