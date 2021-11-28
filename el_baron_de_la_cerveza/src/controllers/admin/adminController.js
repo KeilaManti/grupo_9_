@@ -129,6 +129,22 @@ module.exports = {
         })
         }
     },
+    // Eliminar admin secundario
+    adminsDestroy: (req, res) => {
+        db.Contact.destroy({
+            where: {userId: req.params.id}
+        })
+        db.Avatar.destroy({
+            where: {userId: req.params.id}
+        })
+        db.User.destroy({
+            where: {id: req.params.id}
+        })
+        .then(() => {
+            res.redirect("/admin/index")
+        })
+    },
+
     // Controladores de usuarios
     users:(req, res) => {
         db.User.findAll({

@@ -27,7 +27,11 @@
                 <div class="detalle-detalleproducto">
                     <div class="detalle-nombreproducto">
 						<h4><%= productDetail.name %></h4>
-                    	<h3>$<%= productDetail.price %></h3>
+						<% if(!productDetail.discount){ %>
+							<h3>$<%= productDetail.price %></h3>
+						<% } else { %>
+							<h3>$<%= productDetail.price %> / Con descuento $<%= (productDetail.discount*productDetail.price)/100 %></h3>
+						<% } %>
 					</div>
 					<div class="detalle-datosenvio">
 						<div class="detalle-mediospagos">

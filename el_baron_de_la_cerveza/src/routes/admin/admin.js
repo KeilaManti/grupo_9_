@@ -27,7 +27,8 @@ router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
 // Agregar nuevos administradores 
 router.get("/users/addAdmin/", userAdminCheck, controller.addAdmin);
 router.post("/users/addAdmin/", newAdminCheck, controller.addNewAdmin);
-
+// Eliminar administradores secundarios
+router.delete('/adminsec/delete/:id', controller.adminsDestroy);
 
 /* Crear un producto */
 router.get("/products", userAdminCheck,cookieCheck, controller.products);

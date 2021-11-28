@@ -14,7 +14,12 @@
 			<% } %>
         </a>
         <div class="detalles-articulos">
-            <span>$<%= element.price %></span>
+            <% if(!element.discount){ %>
+			    <span>$<%= element.price %></span>
+			<% } else { %>	
+			    <span>$<%= (element.discount*element.price)/100 %></span>
+			<% } %>
+
             <p><%= element.name %></p>
             <b>  <%= element.brand.brand %>  
                 <% if(element.alcoholContent){ %>
