@@ -108,9 +108,9 @@
                                     <% if (session.user.rol === 1) { %>
                                     <td>
                                         <a href="/admin/users/editAdmin/<%- admins.id %>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <form>
-                                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                        <form id="formDelete" action="/admin/adminsec/delete/<%- admins.id %>?_method=DELETE" method="POST">
+											<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+										</form>
                                     </td>
                                     <% } %>
                                 </tr>
