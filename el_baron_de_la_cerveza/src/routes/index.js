@@ -7,6 +7,8 @@ let cookieCheck = require('../middlewares/cookieCheck');
 router.get('/', cookieCheck, controller.index);
 router.get('/about', controller.about);
 router.get('/contact', controller.contact);
+router.post('/contact',  controller.formEmail);
+
 router.get('/finalizePurchase/:id', userSessionCheck, controller.finalizePurchase);
 
 router.get('/search', controller.search); 

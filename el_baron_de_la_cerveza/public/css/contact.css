@@ -1,6 +1,5 @@
 ﻿.bodyContact {
 	background: url('/img/icons/fondo_regylog.jpg');
-	padding-top: 40px;
 }
 .separador {
 	margin: auto;
@@ -47,23 +46,7 @@
 	width: 90%;
 	margin: auto;
 }
-.contenedor_contacto .card1 {
-	display: none;
-}
-.card1.active {
-	display: flex;
-}
-.card2 {
-	display: none;
-}
-.card2.active {
-	display: flex;
-}
-.card .info {
-	padding: 20px;
-	background: var(--orange);
-	border-radius: 5px;
-}
+
 .card .info p {
 	padding: 5px;
 	font-family: var(--font-open);
@@ -114,7 +97,23 @@
 	width: 100%;
 	justify-content: space-around;
 }
-
+.contenedor_contacto .card1 {
+	display: none;
+}
+.contenedor_contacto .card1.active {
+	display: flex;
+}
+.contenedor_contacto .card2 {
+	display: none;
+}
+.contenedor_contacto .card2.active {
+	display: flex;
+}
+.contenedor_contacto .card .info {
+	padding: 20px;
+	background: var(--orange);
+	border-radius: 5px;
+}
 @media screen and (min-width:720px){
 	
 	.card .info-card{

@@ -6,6 +6,7 @@
 <body class="bodyContact">
 	<!-- HEADER -->
 	<%- include('partials/header.ejs') %>
+	<%- include("partials/banner") %>
 
 	<div class="separador">
 		<img src="/img/icons/icon-title.png" alt="">
@@ -34,13 +35,13 @@
 					</p>
 				</div>
 				<div class="info-card inputs">
-					<form action="">
+					<form action="/contact" method="POST">
 						<h3>Podes hablarme</h3>
-						<input type="text" placeholder="Nombre">
-						<input type="text" placeholder="Mail">
-						<input type="text" placeholder="Asunto">
-						<textarea name="" placeholder="Mensaje"></textarea>
-						<button>Enviar</button>
+						<input type="text" placeholder="Nombre" name="name">
+						<input type="text" placeholder="Mail" name="email">
+						<input type="text" placeholder="Asunto" name="asunto">
+						<textarea name="" placeholder="Mensaje" name="msg"></textarea>
+						<button type="submit" name="send">Enviar</button>
 					</form>
 				</div>
 			</section>

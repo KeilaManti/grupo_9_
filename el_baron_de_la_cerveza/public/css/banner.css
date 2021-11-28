@@ -1,18 +1,19 @@
 .header-banner {
-    margin-top: 56px;
-    height: 162px;
+    height: 30vh;
     width: 100%;
     background-image: url("/img/icons/header-2.jpg");
     background-position: 1px 1px;
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+    justify-content: center;
 }
 
 .header-banner__conenedor {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 81px 81px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .header-banner__titulo {

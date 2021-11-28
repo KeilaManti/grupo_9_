@@ -3,10 +3,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
     z-index: 10000;
     padding: 10px 12px;
     box-shadow: 0px 0.5px 5px 0px rgb(0, 0, 0);
+    transition: 0.3s;
 }
 
 .nav {
@@ -71,6 +71,7 @@
 }
 .nav__link span {
     transition: .3s;
+    color: #fff;
 }
 .nav__link:hover span {
     color: #fff;
@@ -87,17 +88,21 @@
     color: black;
 }
 
+.nav__item a {
+    color: #fff;
+}
 .nav__search {
     cursor: pointer;
     order: 1;
-    background-color: #fff;
     z-index: 1500;
     position: relative;
+    color: #fff;
 }
 
 .search__form {
+    background: #fff;
+    border-radius: 5px;
     height: 3.5rem;
-    background-color: #fff;
     display: flex;
     align-items: center;
     position: absolute;
@@ -107,7 +112,6 @@
 }
 .search__formAdmin {
     height: 3.5rem;
-    background-color: #fff;
     display: flex;
     align-items: center;
     
@@ -115,6 +119,7 @@
 }
 .search__form.active {
     top: -19px;
+    margin-left: 20px;
 }
 
 .search__form input {
@@ -122,6 +127,7 @@
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	width: 250px;
+    background: #fff;
 }
 .search__formAdmin input {
 	padding: 8px 12px;
@@ -141,19 +147,33 @@
 	border: none;
 	font-size: 18px;
 	padding: 10px;
-	cursor: pointer
+	cursor: pointer;
 }
+
+.search__form .btn-search i {
+    
+    color: #000;
+}
+
+.search__form input {
+    background: none;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+} 
 .search__formAdmin .btn-search {
 	background: none;
 	border: none;
 	font-size: 18px;
 	padding: 10px;
-	cursor: pointer
+	cursor: pointer;
 }
 
 .nav__user {
     cursor: pointer;
     order: 3;
+}
+.nav__user .fa-user {
+    color: #fff;
 }
 
 .nav__user span {
@@ -306,10 +326,9 @@
 }
 /* /Mini menu desplegable de carrito */
 .header {
-    background: url('/img/icons/header-1.jpg');
+    background: url('/img/icons/header-3.jpg');
     background-size: cover;
-    background-attachment: fixed;
-    background-position: bottom; 
+    background-position: center; 
     width: 100%;
     height: 57vh;
     display: flex;
@@ -370,7 +389,6 @@
 
     .search__form {
         height: 3.5rem;
-        background-color: #fff;
         display: flex;
         align-items: center;
         position: absolute;

@@ -1,5 +1,7 @@
 const db = require('../database/models');
 const { Op } = require('sequelize');
+const nodemailerTransporter = require('../functions/nodemailerTransporter');
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -105,5 +107,47 @@ module.exports = {
 				session: req.session
 			})
 		})
-	}
+	},
+    formEmail: function(req, res){
+        let consultaDeUsuario = {
+            email : req.body.email,
+            name : req.body.name,
+            msg : req.body.msg,
+            asunto: req.body.asunto
+        }
+        
+        let mailOptions = {
+            from: 'Baron de la cerveza <yon.palac@gmail.com>',
+            to: 'yon.palac@gmail.com',
+            subject: `${consultaDeUsuario.name} te ha enviado una consulta`,
+            html: 
+            ` <div class="header" style="width:100%;background-color: #fff;padding: 5px;">
+            
+            <div class="img" style="width: 30%;min-width: 140px;max-width: 270px;margin:0 auto">
+            <img src="" alt="" style="width: 100%;">
+            </div>
+            </div>
+            <div class="body" style="max-width: 700px;margin: 0 auto;">
+            <p>${consultaDeUsuario.name} quiere contactarse con nosotros</p>
+            <p>
+            Su correo electronico es: ${consultaDeUsuario.email}
+            </p>
+            <p>
+            Su asunto es: ${consultaDeUsuario.asunto}
+            </p>
+            <p>
+            Nos ha enviado la siguiente consulta: ${consultaDeUsuario.msg} 
+            </p>
+            </div>
+            
+            </div>`
+        }
+        
+        nodemailerTransporter.sendMail(mailOptions, (err, data) => {
+            
+            console.log('email enviado')
+            res.redirect('/')
+            
+        });
+    }
 }
