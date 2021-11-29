@@ -17,7 +17,8 @@
             <% if(!element.discount){ %>
 			    <span>$<%= element.price %></span>
 			<% } else { %>	
-			    <span>$<%= (element.discount*element.price)/100 %></span>
+			    <span>$<%= (element.discount*element.price)/100 %></span><br>
+			    <small style="text-decoration: line-through;">$<%= element.price %></small>
 			<% } %>
 
             <p><%= element.name %></p>

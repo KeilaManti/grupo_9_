@@ -28,7 +28,19 @@ main.about h2 {
 }
 .about-us img {
 	width: 310px;
+	-webkit-animation: rotateY 2s infinite;
+	animation: rotateY 3s infinite;
 }
+@-webkit-keyframes rotateY {
+ 	0% {-webkit-transform: rotateY(0deg);}
+	50% {-webkit-transform: rotateY(360deg);}
+	100% {-webkit-transform: rotateY(360deg);}
+}
+@keyframes rotateY {
+	0% {transform: rotateY(0deg);}
+   50% {transform: rotateY(360deg);}
+   100% {transform: rotateY(360deg);}
+}  
 .about-us p {
 	padding: 13px;
 	font-size: 22px;

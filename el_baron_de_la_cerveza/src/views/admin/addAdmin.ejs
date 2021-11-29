@@ -54,6 +54,9 @@
                         <label for="inputPassAgain" class="form-label">Repetir contraseña</label>
                         <input type="password" class="form-control" id="pass2" name="pass2">
                         <span id="pass2Errors" class="fileErrors"></span>
+
+                        
+                        <a id="viewNewPass" style="cursor: pointer;">Mostrar contraseña</a>
                         
                         <% if (locals.errors && errors.pass2) { %>
                             <small class="errorred" style="color: red;"><%= errors.pass2.msg %></small>

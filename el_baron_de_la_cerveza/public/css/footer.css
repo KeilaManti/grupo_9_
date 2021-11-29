@@ -36,10 +36,18 @@ z-index: 8000;
 	font-size: 25px;
 	padding: 10px;
 }
+.footer .redes div a:nth-child(1) i {
+	color: blue;
+}
+.footer .redes div a:nth-child(2) i {
+	color: green;
+}
+.footer .redes div a:nth-child(3) i {
+	color: red;
+}
 .footer .redes div a:hover i {
-	color: lightgreen;
 	transition: 0.9s;
-    transform: rotateY(180deg);
+    transform: rotateY(360deg);
 }
 .footer .navegacion ul li a {
 	color: #fff;
