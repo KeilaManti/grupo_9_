@@ -1,0 +1,25 @@
+Buenas noches, soy Yonatan Palacios, tengo 27 años, soy desarrollador web y este es un tour por el baron de la cerveza, 
+una pagina desarrollada aqui con mi compañera.
+Keila se presenta, 
+
+La pagina es completamente responsiva, donde la vista de celular imita a una aplicacion mobil para mas comodidad. 
+Por otro lado en el home tenemos un evento scroll en el navbar, un slider de destacados, efectos paralax y pseudoclases de css, 
+ademas tenemos esta libreria que carga lo elementos a medida que vamos bajando.
+Para finalizar tenemos un footer con una navegacion y nuestras redes sociales completamente funcionales.
+
+En la parte de productos volvemos a tener los destacados y la posibilidad de ordenar los productos por precio y por ofertas. 
+y podemos filtrar los productos por marcas y categorias. Mas abajo tenemos un carrusel de banners promocionales que se pueden cambiar desde el admin
+Por otro lado tenemos la chance de realizar busqueda de los productos a traves de los caracteres que escribamos
+Podemos entrar a los detalles de productos donde tenemos una lista de recomendados y al intentar agregar al carrito salta esta alerta hecha con sweet alert para poder registrarse
+
+La parte del registro tiene validaciones tanto del back como del front y este check que no nos permite registrarnos si no esta seleccionado.
+Ademas tenemos la chance de ingresar con nuestra cuenta de google
+Una vez adentro podemos comprar los productos directamente donde nos lleva a esta pagina de pago o agregarlos al carrito que tambien se puede visibilizar en este menu lateral
+Por otro lado una vez logeados podemos entrar a nuestro perfil y editarlo, donde podemos cambiar estos campos tambien validados desde el front y back y este select de provincias consumidos desde una api. Tambien podemos cambiar la contraseña, completamente segura y eliminar la cuenta.
+
+Ahora vamos a ingresar como administradores donde de entrada podemos notar este boton para editar productos, aqui tenemos la lista de productos con la chance de filtrarlos por marcas o categorias. Por aqui podemos agregar productos donde podemos destacarlo o no, en caso de que lo destaquemos se agregara al slider de destacados. Tambien podemos eliminarlo. Por otro lado tenemos la lista de usuarios registrados donde podemos buscar por nombre y ver su informacion donde tenemos los datos de contactos, el historial de compras. Ademas podemos agregar categorias, marcas y banners. Tenemos un recomendado de tamaños para que no se deformen tanto, y se van a agregar al carrousel de banners promociones. Todo el administrador esta hecho con bootstrap, es responsivo y en la parte principal podemos ver esta informacion y tenemos la posibilidad de agregar nuevos administradores. Si ingresamos como un administrador secundario tenemos las mismas posibilidades salvo que no podemos agregar a otros administradores ni eliminar usuarios registrados. 
+
+Otro detalle es que la parte de contacto le dimos funcionamiento con nodemailer y en este caso se pueden comunicar con cualquiera de nosotros.
+Le vamos a estar pasando por el chat el link de la pagina subida al servidor para que puedan verlo y testearlo por su cuenta. 
+
+conclusion y cierre
