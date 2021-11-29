@@ -67,12 +67,14 @@
 					</section>
 					<div class="boton-detalleproducto">
 						<% if(session.user !== undefined){%>
-							<button id="btnOpenSession" class="btn-buy br">
-								<a href="#" class="btn-buy br"style="color: white;">AGREGAR AL CARRITO</a>
-							</button>
+							<a href="/users/productCart/<%= productDetail.id %>" class="btn-buy br">Agregar al carrito</a><br>
 						<% } else {%>
-							<button id="btnOpenSession" class="btn-buy br">AGREGAR AL CARRITO</button><br>
+							<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
 						<% } %>
+						<% if (typeof session.user != "undefined") { %>
+							<% if (session.user.rol === 1 || session.user.rol === 2) { %>
+						<a href="/admin/products/edit/<%- productDetail.id %>" class="btn-edit br">Editar</a>
+						<% }} %>
 					</div>
                 </div>
             </section>
