@@ -10,4 +10,6 @@ router.get("/productsFilter/:id", controller.filter);
 router.get("/brandFilter/:id", controller.brandFilter);
 router.get("/order/:id", controller.orderBy);
 
+router.get('/cart', userSessionCheck, controller.cart)
+
 module.exports = router;

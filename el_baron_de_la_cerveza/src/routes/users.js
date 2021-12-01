@@ -9,7 +9,6 @@ const {
     updateUser,
     userEdit,
     logout,
-    productCart,
     passwordEdit,
     passwordUpdate,
     userDestroy,
@@ -36,7 +35,6 @@ passport.deserializeUser(function(user, done) {
 router.get('/', userSessionCheck, user);
 router.delete('/destroyUser/:id', userDestroy)
 
-router.get("/productCart/:id", userSessionCheck, productCart);
 
 router.get('/login', userLog, login);
 router.post('/login', loginValidator, processLogin);

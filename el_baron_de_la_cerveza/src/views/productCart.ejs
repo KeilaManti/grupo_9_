@@ -11,6 +11,9 @@
 
     <!-- CARRITO -->
 	<main class="container-product">
+		<!-- <button class="clear-cart" onclick="clearCart(`<%=user%>`)">
+			Vaciar carrito
+		</button>  -->
 		<div class="product">
 
 			<div class="product-title">
@@ -24,46 +27,61 @@
 					Precio
 				</p>
 			</div>
-					<div class="card-product">
-						<div class="product-info">
-							<div class="product-img">
-								<a href="/products/productDetail/">
-									<img class="product-img__img" src="/img/productos/<%= product.images %>" alt="">
-								</a>
-								<span class="product-img__name"><%= product.name %></span>
+	            <% if (cart.length === 0) { %>
+					<div>
+						<div class="detalles-producto-carrito carrito--carrito">
+							<span class="carrito--carro">No hay productos en el carrito</span>
+						</div>
+					</div> 
+					<% } else { %>
+						<% cart.forEach(product => { %>
+						<div class="card-product">
+							<div class="product-info">
+								<div class="product-img">
+									<a href="/products/productDetail/">
+										<img class="product-img__img" src="/img/productos/<%- product.images %>" alt="">
+									</a>
+									<span class="product-img__name"><%- product.name %></span>
+								</div>
+							</div>
+							<div class="product-cantidad">
+								<p class="product-cantidad__cantidad item">Cantidad</p>
+								<div class="product-cantidad__number">
+									<button onclick="removeOne(`<%- product.id %>`, `<%= session.user.id %>`)">
+										-
+									</button>
+									<div id="cantidad"><%- product.quantity %></div> 
+									<button onclick="addToCart(`<%= product.id %>`, 1,`<%= session.user.id %>`)">
+										+
+									</button>
+								</div>
+							</div>
+							<div class="product-price">
+								<div class="product-price__price">
+									<p class="product-price__number"><%- product.price %></p>
+									
+									<button class="clear-cart" onclick="removeAll(`<%- product.id %>`, `<%= session.user.id %>`)">
+									<i class="fas fa-trash"></i>
+									</button>
+								</div>
 							</div>
 						</div>
-						<div class="product-cantidad">
-							<p class="product-cantidad__cantidad item">Cantidad</p>
-							<div class="product-cantidad__number">
-								<button>
-									-
-								</button>
-								<div id="cantidad">1</div> 
-								<button onclick="plus()">
-									+
-								</button>
-							</div>
-						</div>
-						<div class="product-price">
-							<div class="product-price__price">
-								<p class="product-price__number"><%= product.price %></p><i class="fas fa-trash"></i>
-							</div>
-						</div>
-					</div>
-				
-				<!-- <div>
-					<div class="detalles-producto-carrito carrito--carrito">
-						<span class="carrito--carro">No hay productos en el carrito</span>
-					</div>
-				</div> -->
-			 
+						<% }) %>
+					<% } %>
+						
 		</div> 
+
 		<div class="price-total">
+			
 			<p class="price-total__title">Total del pedido</p>
-			<div class="price-total__total">
-				<p>Total:</p><span id="total">$<%= product.price %></span>
-			</div>
+			<% if (cart.length === 0) { %>
+			<% } else { %>
+				<% cart.forEach(product => { %>
+				<div class="price-total__total">
+					<p>Total:</p><span id="total">$<%- (Number(product.price) * Number(product.quantity))%></span>
+				</div>
+				<% }) %>
+			<% } %>
 		</div>
 		<div class="product-button">
 			<a href="/products"><button class="product-button__btn-comprando">
@@ -82,6 +100,7 @@
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="/js/swiper.js"></script>
+<script src="/js/cart.js"></script>
 
 </body>
 </html>

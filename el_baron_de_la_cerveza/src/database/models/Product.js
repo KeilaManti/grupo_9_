@@ -53,10 +53,14 @@ module.exports = function(sequelize, dataTypes){
         Product.belongsTo(models.Category, {
             as: "category",
             foreignKey: "categoryId"
-        }),
+        })
         Product.belongsTo(models.Brand, {
             as: "brand",
             foreignKey: "brandId"
+        })
+        Product.hasMany(models.Order_items, {
+            as: "order_items",
+            foreignKey: "productId"
         })
     }
 

@@ -2,24 +2,56 @@ let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
 const db = require('../database/models')
 const Op = require('sequelize');		
+let axios = require('axios')
 
 module.exports = {
     // Reenderizo vista de usuario
 	user: (req, res) => {
-        db.User.findByPk(req.session.user.id, {
-            include: [{
-                association: "avatars"
-            }, {
-                association: "contacts"  
-            }]
-        })
-        .then(user => {
-            res.render('user', {
-                titleBanner: "Perfil de frescura",
-                session: req.session,
-                user
+        if(req.session.user){
+            let user = req.session.user
+            axios({
+            method: 'get',
+            url: `http://localhost:3030/api/cart/${user.id}`,
             })
-        })
+            .then(response =>{
+                let cart = response.data.data?.order_items.map(item => {
+                    return {
+                    ...item.products,
+                    quantity: item.quantity
+                    }
+                })
+                db.User.findByPk(req.session.user.id, {
+                    include: [{
+                        association: "avatars"
+                    }, {
+                        association: "contacts"  
+                    }]
+                })
+                .then(user => {
+                    res.render('user', {
+                        titleBanner: "Perfil de frescura",
+                        user,
+                        cart,
+                        session: req.session,
+                    })
+                })
+            })
+        } else {
+            db.User.findByPk(req.session.user.id, {
+                include: [{
+                    association: "avatars"
+                }, {
+                    association: "contacts"  
+                }]
+            })
+            .then(user => {
+                res.render('user', {
+                    titleBanner: "Perfil de frescura",
+                    session: req.session,
+                    user
+                })
+            })
+        }
 	},
     // Reenderizo vista de login
 	login: (req, res) => {
@@ -125,19 +157,49 @@ module.exports = {
 
     // Editar datos de usuario
     userEdit: (req, res) => {
-        db.User.findByPk(req.session.user.id, {
-            include: [{
-                association: "avatars"
-            }, {
-                association: "contacts"  
-            }]
-          }).then((user) => {
-            res.render("userProfileEdit", {
-              titleBanner: "Editar perfil", 
-              user,
-              session: req.session,
+        if(req.session.user){
+            let user = req.session.user
+            axios({
+            method: 'get',
+            url: `http://localhost:3030/api/cart/${user.id}`,
+            })
+            .then(response =>{
+                let cart = response.data.data?.order_items.map(item => {
+                    return {
+                    ...item.products,
+                    quantity: item.quantity
+                    }
+                })
+                db.User.findByPk(req.session.user.id, {
+                    include: [{
+                        association: "avatars"
+                    }, {
+                        association: "contacts"  
+                    }]
+                  }).then((user) => {
+                    res.render("userProfileEdit", {
+                      titleBanner: "Editar perfil", 
+                      user,
+                      cart,
+                      session: req.session,
+                    });
+                });
+            })
+        } else {
+            db.User.findByPk(req.session.user.id, {
+                include: [{
+                    association: "avatars"
+                }, {
+                    association: "contacts"  
+                }]
+              }).then((user) => {
+                res.render("userProfileEdit", {
+                  titleBanner: "Editar perfil", 
+                  user,
+                  session: req.session,
+                });
             });
-        });
+        }
     },
     updateUser: (req, res) => {
         let errors = validationResult(req);
@@ -195,19 +257,49 @@ module.exports = {
     },
     // Vista editar contraseña
     passwordEdit: (req, res) => {
-        db.User.findByPk(req.session.user.id, {
-            include: [{
-                association: "avatars"
-            }, {
-                association: "contacts"  
-            }]
-          }).then((user) => {
-            res.render("editPassword", {
-              titleBanner: "Editar contraseña", 
-              user,
-              session: req.session,
-            });
-        })
+        if(req.session.user){
+            let user = req.session.user
+            axios({
+            method: 'get',
+            url: `http://localhost:3030/api/cart/${user.id}`,
+            })
+            .then(response =>{
+                let cart = response.data.data?.order_items.map(item => {
+                    return {
+                    ...item.products,
+                    quantity: item.quantity
+                    }
+                })
+                db.User.findByPk(req.session.user.id, {
+                    include: [{
+                        association: "avatars"
+                    }, {
+                        association: "contacts"  
+                    }]
+                  }).then((user) => {
+                    res.render("editPassword", {
+                      titleBanner: "Editar contraseña", 
+                      user,
+                      cart,
+                      session: req.session,
+                    });
+                })
+            })
+        } else {
+            db.User.findByPk(req.session.user.id, {
+                include: [{
+                    association: "avatars"
+                }, {
+                    association: "contacts"  
+                }]
+              }).then((user) => {
+                res.render("editPassword", {
+                  titleBanner: "Editar contraseña", 
+                  user,
+                  session: req.session,
+                });
+            })
+        }
     },
     passwordUpdate: (req, res) => {
         let errors = validationResult(req);
@@ -243,17 +335,6 @@ module.exports = {
                 });
             })
         }
-    },
-    productCart: (req, res) => {
-        db.Product.findByPk(req.params.id)
-        .then((product)=>{
-            res.render('productCart',{
-                titleBanner: "Carrito",
-                product,
-                session: req.session,
-            })
-
-        })
     },
     // Eliminar Usuario
     userDelete: (req, res) => {

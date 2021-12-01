@@ -138,11 +138,18 @@
     font-weight: bold;
 }
 
-.product-price__price i{
-    color: #B57129;
+.product-price__price button {
+    background: none;
+    border: none;
+    padding: 10px 10px;
     cursor: pointer;
 }
-
+.product-price__price i {
+    font-size: 20px;
+}
+.product-price__price button:hover i {
+    color: red;
+}
 /* Bloque precio total*/
 
 .price-total {
@@ -186,7 +193,10 @@
     background-color: #F09D45;
     color: white;
 }
-
+.detalles-producto-carrito img {
+    width: 120px;
+    background: white;
+}
 @media(min-width: 768px){
     .container-product {
         max-width: 1024px;

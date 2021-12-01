@@ -62,7 +62,15 @@
         
     </div>
     <div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
-        <span>0</span>
+        <% if (typeof session.user != "undefined"){ %>
+            <% if(cart){ %>
+                <span><%- cart.length %></span>
+            <% } else { %>
+                <span>0</span>
+            <% }%>
+        <% } else { %>
+            <span>0</span>
+        <% }%>
     </div>
     
     <!-- Mini menu desplegable  -->
@@ -72,14 +80,29 @@
         </div>
         <div class="en-carrito">
             <div>
-                <div class="detalles-producto-carrito">
-                    <span>No hay productos en el carrito</span>
-                </div>
+                <% if (typeof session.user != "undefined") { %>
+                    <% if(cart != 0){ %>
+                        <% cart.forEach(cart => { %>
+                            <div class="detalles-producto-carrito">
+                                <img src="/img/productos/<%= cart.images %>">
+                                <span><%= cart.name %> |  $<%= cart.price %></span>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="detalles-producto-carrito">
+                            <span>No hay productos en el carrito</span>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <div class="detalles-producto-carrito">
+                        <span>No hay productos en el carrito</span>
+                    </div>
+                <% } %>
             </div>
 
         </div>
         <div class="boton-carrito">
-            <a href="/users/productCart">Ir a carrito</a>
+            <a href="/products/cart">Ir a carrito</a>
         </div>
     </div>
     <!-- /Mini menu desplegable -->

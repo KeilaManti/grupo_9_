@@ -50,6 +50,10 @@ module.exports = (sequelize, dataTypes) => {
         User.hasMany(models.Avatar, {
             as: "avatars",
             foreignKey:"userId" 
+        }),
+        User.hasOne(models.Orders, {
+            as: "order",
+            foreignKey:"userId" 
         })
     }
 

@@ -33,6 +33,18 @@
 							<h3>$<%= productDetail.price %> / Con descuento $<%= (productDetail.discount*productDetail.price)/100 %></h3>
 						<% } %>
 					</div>
+					<div class="product-cantidad">
+						<p class="product-cantidad__cantidad item">Cantidad</p>
+						<div class="product-cantidad__number">
+							<button onclick="subtract();">
+								-
+							</button>
+							<div id="count">1</div> 
+							<button onclick="add();">
+								+
+							</button>
+						</div>
+					</div>
 					<div class="detalle-datosenvio">
 						<div class="detalle-mediospagos">
 							<div class="mediospagos-inner">
@@ -67,7 +79,7 @@
 					</section>
 					<div class="boton-detalleproducto">
 						<% if(session.user !== undefined){%>
-							<a href="/users/productCart/<%= productDetail.id %>" class="btn-buy br">Agregar al carrito</a><br>
+							<a onclick="addToCart(`<%- productDetail.id %>`, 1, `<%= user %>`)" class="btn-buy br">Agregar al carrito</a><br>
 						<% } else {%>
 							<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
 						<% } %>
@@ -103,6 +115,13 @@
 
 	<%- include ("partials/footer") %>
 
-<script src="/js/alerts.js"></script>
+	<script>
+		function notLog() {
+			alert("Tenes que hacer login turri");
+		}
+		</script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/alerts.js"></script>
+  <script src="/js/productDetail.js"></script>
 </body>
 </html>

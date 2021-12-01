@@ -12,6 +12,7 @@ let indexRouter = require('./routes/index.js');
 let userRouter = require('./routes/users.js');
 let productsRouter = require("./routes/products.js");
 let adminRouter = require("./routes/admin/admin.js");
+var apiRouter = require('./routes/apiRoutes.js');
 
 /*  Middleware  */
 app.use(express.static(path.join(__dirname, '../public')));
@@ -37,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/products', productsRouter);
 app.use("/admin", adminRouter);
+app.use('/api', apiRouter); // APIs
 app.use((req, res, next) => {
     res.status(404).render("error");
 })
