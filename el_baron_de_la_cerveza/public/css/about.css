@@ -40,7 +40,7 @@ main.about h2 {
 	margin: 0 auto;
 }
 .about-contact .form img {
-	max-width: 900px;
+	max-width: 500px;
 }
 @-webkit-keyframes rotateY {
  	0% {-webkit-transform: rotateY(0deg);}
