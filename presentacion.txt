@@ -1,8 +1,8 @@
 Buenas noches, soy Yonatan Palacios, tengo 27 años, soy desarrollador web y este es un tour por el baron de la cerveza, 
 una pagina desarrollada aqui con mi compañera.
 Keila se presenta.
-Para la tematica elegimos dos temas con la que la mayoria de las personas se sintieran familiarizadas. Los simpsons y la cerveza, donde tomamos como relacion inmediata el capitulo donde se menciona el nombre, el baron de la cerveza, donde se hace uso la bola de boliche para transportar la cerveza. 
-Este es un ecommerce el cual busca brindar facilidad y comodidad a la hora de comprar. Sabiendo esto a continuacion comenzaremos por darles un recorrido por la misma.
+A causa de la pandemia no solo los bares se vieron afectados, sino tambien la chance de nosotros los mortales de salir de casa a reunirnos y tomar una cerveza. Este ecommerce nacio por esta necesidad, tanto de facilitar la llegada de la cerveza a los clientes como de la cervezeria que la adquiera a verder. 
+Cuando el motivo del ecommerce estaba decidido, la tematica necesitaba cierta familiaridad, y naturalmente lo relacionamos con los simpson donde en un capitulo se menciona el nombre, el baron de la cerveza y donde se hace uso de la bola de boliche para transportarla cerveza. Sabiendo esto a continuacion comenzaremos por darles un recorrido por la misma.
 
 La pagina es completamente responsiva, donde la vista de celular imita a una aplicacion mobil para mas comodidad. 
 Por otro lado en el home tenemos un evento scroll en el navbar, un slider de destacados, esta imagen efectos paralax y las marcas con las que trabajamos tienen pseudoclases de css, ademas tenemos esta libreria llamada wowjs que carga lo elementos a medida que vamos bajando.
@@ -19,7 +19,6 @@ Por otro lado una vez logeados podemos entrar a nuestro perfil y editarlo, donde
 
 Ahora vamos a ingresar como administradores donde de entrada podemos notar este boton para editar productos, {edito producto} aqui tenemos la lista de productos con la chance de filtrarlos por marcas o categorias. Por aqui podemos agregar productos donde podemos destacarlo o no, en caso de que lo destaquemos se agregara al slider de destacados. Tambien podemos eliminarlo. Por otro lado tenemos la lista de usuarios registrados donde podemos buscar por nombre y ver su informacion donde tenemos los datos de contactos, el historial de compras. Ademas podemos agregar categorias, marcas y banners. Tenemos un recomendado de tamaños para que no se deformen tanto, y se van a agregar al carrousel de banners promociones. 
 
-Todo el administrador esta hecho con bootstrap, es responsivo y en la parte principal podemos ver esta informacion y tenemos la posibilidad de agregar nuevos administradores. Si ingresamos como un administrador secundario tenemos las mismas posibilidades salvo que no podemos agregar a otros administradores ni eliminar usuarios registrados. Otro detalle es que la parte de contacto le dimos funcionamiento con nodemailer y en este caso se pueden comunicar con cualquiera de nosotros.
-Le vamos a estar pasando por el chat el link de la pagina subida al servidor para que puedan verlo y testearlo por su cuenta. 
+Todo el administrador esta hecho con bootstrap, es responsivo y en la parte principal podemos ver esta informacion y tenemos la posibilidad de agregar nuevos administradores. Si ingresamos como un administrador secundario tenemos las mismas posibilidades salvo que no podemos agregar a otros administradores ni eliminar usuarios registrados. y como ultimo detalle es que los formularios en la parte de contacto le dimos funcionamiento con nodemailer y en este caso se pueden comunicar con cualquiera de nosotros.
 
-conclusion y cierre
+Asi terminamos con nuestro recorrido y estamos abiertos a cualquier consulta o sugerencia. Gracias!
