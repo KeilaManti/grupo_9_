@@ -21,8 +21,17 @@ z-index: 8000;
 	margin: 0 auto;
 	color: #fff;
 }
+.footer .logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .footer .logo img {
 	width: 140px;
+}
+.footer .logo a {
+	color: white;
+	font-size: 15px;
 }
 .formas-pago {
 	display: flex;
@@ -35,15 +44,18 @@ z-index: 8000;
 .footer .redes div a i {
 	font-size: 25px;
 	padding: 10px;
+	color: white;
+	background-color: black;
+	border-radius: 50%;
 }
-.footer .redes div a:nth-child(1) i {
-	color: blue;
+.footer .redes div a:nth-child(1) i:hover {
+	background-color: blue;
 }
-.footer .redes div a:nth-child(2) i {
-	color: green;
+.footer .redes div a:nth-child(2) i:hover {
+	background-color: green;
 }
-.footer .redes div a:nth-child(3) i {
-	color: red;
+.footer .redes div a:nth-child(3) i:hover {
+	background-color: red;
 }
 .footer .redes div a:hover i {
 	transition: 0.9s;
