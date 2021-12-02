@@ -1,6 +1,6 @@
 ﻿.bodyContact {
 	background: url('/img/icons/fondo_regylog.jpg');
-}
+} 
 .separador {
 	margin: auto;
 	display: flex;
@@ -95,7 +95,11 @@
 .btn-divition {
 	display: flex;
 	width: 100%;
+	flex-wrap: wrap;
 	justify-content: space-around;
+}
+.btn-divition .btn-open-card {
+	width: 100%;
 }
 .contenedor_contacto .card1 {
 	display: none;
@@ -115,7 +119,9 @@
 	border-radius: 5px;
 }
 @media screen and (min-width:720px){
-	
+	.btn-divition .btn-open-card {
+		width: 50%;
+	}
 	.card .info-card{
 		width: 50%;
 	}

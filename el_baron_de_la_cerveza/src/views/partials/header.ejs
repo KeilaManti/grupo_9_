@@ -81,11 +81,13 @@
         <div class="en-carrito">
             <div>
                 <% if (typeof session.user != "undefined") { %>
-                    <% if(cart != 0){ %>
+                    <% if(cart){ %>
                         <% cart.forEach(cart => { %>
                             <div class="detalles-producto-carrito">
-                                <img src="/img/productos/<%= cart.images %>">
-                                <span><%= cart.name %> |  $<%= cart.price %></span>
+                                <div class="detalles-producto-img">
+                                    <img src="/img/productos/<%- cart.images %>">
+                                </div>
+                                <span><%- cart.name %> | $<%- cart.price %></span>
                             </div>
                         <% }) %>
                     <% } else { %>

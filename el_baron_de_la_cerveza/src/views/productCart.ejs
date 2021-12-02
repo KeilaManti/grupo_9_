@@ -58,7 +58,7 @@
 							</div>
 							<div class="product-price">
 								<div class="product-price__price">
-									<p class="product-price__number"><%- product.price %></p>
+									<p class="product-price__number" id="price"><%- (Number(product.price) * Number(product.quantity)) %></p>
 									
 									<button class="clear-cart" onclick="removeAll(`<%- product.id %>`, `<%= session.user.id %>`)">
 									<i class="fas fa-trash"></i>
@@ -76,9 +76,10 @@
 			<p class="price-total__title">Total del pedido</p>
 			<% if (cart.length === 0) { %>
 			<% } else { %>
-				<% cart.forEach(product => { %>
-				<div class="price-total__total">
-					<p>Total:</p><span id="total">$<%- (Number(product.price) * Number(product.quantity))%></span>
+				
+				<% cart.forEach((product) => { %>
+				<div class="price-total__total" id="total">
+					<p>Total:</p><span id="total"><%- product.price %></span>
 				</div>
 				<% }) %>
 			<% } %>

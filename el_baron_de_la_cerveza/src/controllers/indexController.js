@@ -73,7 +73,6 @@ module.exports = {
                 .then(products => {
                     db.Brand.findAll()
                     .then(brands =>{
-                        console.log(product)
                         res.render("index", {
                             titleBanner: "Pedi tu birra y te la llevamos a tu casa",
                             titleSlider: "Destacados",
@@ -129,7 +128,7 @@ module.exports = {
                     quantity: item.quantity
                     }
                 })
-                res.render("about", {
+                res.render("contact", {
                     titleBanner: "Contáctenos",
                     cart,
                     session: req.session
@@ -137,7 +136,7 @@ module.exports = {
 
             })
         } else {
-            res.render("about", {
+            res.render("contact", {
                 titleBanner: "Contáctenos",
                 session: req.session
             })

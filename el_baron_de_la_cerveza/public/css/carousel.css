@@ -46,6 +46,7 @@
 .slide-img {
     width: 100%;
     height: 180px;
+    object-fit: cover;
 }
 /* Posición de el boton siguiente a la derecha */
 .carousel-container .next {

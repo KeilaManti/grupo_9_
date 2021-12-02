@@ -294,12 +294,12 @@
 	background-color: var(--orange);
 	border-radius: 10px;
 }
-.carrito-menu .imagen-carrito {
+.carrito-menu .detalles-producto-img {
 	width: 100px;
 	height: 140px;
 	background: grey;
 }
-.carrito-menu .imagen-carrito img {
+.carrito-menu .detalles-producto-img img {
 	width: 100px;
 	height: 140px;
 	background: grey;
@@ -307,6 +307,14 @@
 .carrito-menu  .detalles-producto-carrito b {
 	display: block;
 	color: var(--orange);
+}
+.carrito-menu  .detalles-producto-carrito .detalles-producto-img {
+   
+    overflow: hidden;
+    position: relative;
+}
+.carrito-menu  .detalles-producto-carrito .detalles-producto-img img {
+    position: absolute;
 }
 .carrito-menu  .detalles-producto-carrito span {
 	font-family: var(--font-open);

@@ -22,7 +22,7 @@ const BASE_URL = window.location.origin
             if(result.status === 200 || result.status === 201){
                 const Toast = Swal.mixin({
                     toast: true,
-                    position: 'bottom-end',
+                    position: 'center-center',
                     showConfirmButton: false,
                   })
                   
@@ -48,11 +48,10 @@ const BASE_URL = window.location.origin
             }
         })
         .then(result => {
-            console.log(result)
             if(result.status === 200){
                 const Toast = Swal.mixin({
                     toast: true,
-                    position: 'bottom-end',
+                    position: 'center-center',
                     showConfirmButton: false,
                   })
                   

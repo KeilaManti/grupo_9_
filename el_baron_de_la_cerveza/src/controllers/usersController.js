@@ -257,7 +257,6 @@ module.exports = {
     },
     // Vista editar contraseña
     passwordEdit: (req, res) => {
-        if(req.session.user){
             let user = req.session.user
             axios({
             method: 'get',
@@ -285,21 +284,7 @@ module.exports = {
                     });
                 })
             })
-        } else {
-            db.User.findByPk(req.session.user.id, {
-                include: [{
-                    association: "avatars"
-                }, {
-                    association: "contacts"  
-                }]
-              }).then((user) => {
-                res.render("editPassword", {
-                  titleBanner: "Editar contraseña", 
-                  user,
-                  session: req.session,
-                });
-            })
-        }
+        
     },
     passwordUpdate: (req, res) => {
         let errors = validationResult(req);
@@ -320,20 +305,34 @@ module.exports = {
                 res.redirect("/users")
             })
         } else {
-            console.log(errors),
-            db.User.findByPk(req.session.user.id, {
-                include: [{
-                    association: "avatars"
-                }, {
-                    association: "contacts"  
-                }]
-              }).then((user) => {
-                res.render("editPassword", {
-                  titleBanner: "Editar contraseña", 
-                  user,
-                  session: req.session,
-                });
+            let user = req.session.user
+            axios({
+            method: 'get',
+            url: `http://localhost:3030/api/cart/${user.id}`,
             })
+            .then(response =>{
+                let cart = response.data.data?.order_items.map(item => {
+                    return {
+                    ...item.products,
+                    quantity: item.quantity
+                    }
+                })
+                db.User.findByPk(req.session.user.id, {
+                    include: [{
+                        association: "avatars"
+                    }, {
+                        association: "contacts"  
+                    }]
+                  }).then((user) => {
+                    res.render("editPassword", {
+                      titleBanner: "Editar contraseña", 
+                      user,
+                      cart,
+                      session: req.session,
+                    });
+                })
+            })
+        
         }
     },
     // Eliminar Usuario

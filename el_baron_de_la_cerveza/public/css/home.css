@@ -30,6 +30,7 @@
 /**********PRODUCTOS***************/
 article a {
 	display: flex;
+	overflow: hidden;
 }
 .imagen-producto {
 	overflow: hidden;

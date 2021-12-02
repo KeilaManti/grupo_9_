@@ -81,7 +81,7 @@
 						<% if(session.user !== undefined){%>
 							<a onclick="addToCart(`<%- productDetail.id %>`, 1, `<%= user %>`)" class="btn-buy br">Agregar al carrito</a><br>
 						<% } else {%>
-							<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
+							<button id="btnOpenSession" class="btn-buy br">Agregar al carrito</button><br>
 						<% } %>
 						<% if (typeof session.user != "undefined") { %>
 							<% if (session.user.rol === 1 || session.user.rol === 2) { %>
