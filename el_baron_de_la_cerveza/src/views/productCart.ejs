@@ -77,11 +77,9 @@
 			<% if (cart.length === 0) { %>
 			<% } else { %>
 				
-				<% cart.forEach((product) => { %>
-				<div class="price-total__total" id="total">
-					<p>Total:</p><span id="total"><%- product.price %></span>
+				<div class="price-total__total">
+					<span id="total"></span>
 				</div>
-				<% }) %>
 			<% } %>
 		</div>
 		<div class="product-button">

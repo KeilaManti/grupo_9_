@@ -6,6 +6,16 @@ const BASE_URL = window.location.origin
     let $removeAll = document.querySelector('#removeAll')
     let $clearCart = document.querySelector('#clearCart')
     let $addToCartOk = document.querySelector('#addToCartOk')
+    let price = document.querySelectorAll("#price");
+    let total = document.querySelector("#total");
+
+    let totalPrice = 0;
+    for(let i = 0; i < price.length; i++){
+        totalPrice = totalPrice + Number(price[i].innerHTML)
+    }
+    total.innerHTML = `$ ${totalPrice}`
+
+    
 
     function addToCart (productId, quantity = 1, user){
         fetch(`${BASE_URL}/api/cart/${productId}/${quantity}/${user}`, {method: "POST"})
