@@ -321,7 +321,7 @@ module.exports = {
         nodemailerTransporter.sendMail(mailOptions, (err, data) => {
             
             console.log('email enviado')
-            res.redirect('/')
+            res.redirect('/contact')
             
         });
     }

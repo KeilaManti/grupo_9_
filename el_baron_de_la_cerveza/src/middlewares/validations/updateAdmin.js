@@ -20,11 +20,13 @@ module.exports = [
     body('pass')
     .custom((value, { req }) => {
         return db.User.findOne({
+            // Buscamos el admin para que compare solo a este usuario
             where: {
                 rol: 1,
             },
         })
         .then((user) => {
+            // Comparamos la constraseña que viene por body con la guardada en la bd
             if (!bcrypt.compareSync(req.body.pass, user.dataValues.pass)) {
                 return Promise.reject();
             }

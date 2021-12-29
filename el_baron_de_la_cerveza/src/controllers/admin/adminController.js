@@ -31,7 +31,7 @@ module.exports = {
             })
         })
     },
-    // Editar administrador
+    // Editamos administrador 
     userAdmin: (req, res)=>{
         db.User.findOne({
             where: {

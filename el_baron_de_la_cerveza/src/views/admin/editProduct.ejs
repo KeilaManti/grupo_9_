@@ -18,7 +18,7 @@
             <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Subir productos</h2>
+                    <h2 class="fs-2 m-0">Editar producto</h2>
                 </div>
             </nav>
 
@@ -51,12 +51,8 @@
                         <label for="inputDiscount" class="form-label">Marca</label>
                         <select class="form-select" id="brandSelect" name="brand">
                          <% brands.forEach(brand => { %>
-                            <% if (brand.brand != "Sin marca"){ %>
-                                <% if (product.brandId != "100"){ %>
-                                <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
-                                <% } %>
-                         <% }}) %>
-                         <option value="100">Sin marca</option>
+                            <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
+                        <% }) %>
                         </select>
                         
                         <span id="brandErrors" class="fileErrors"></span>
@@ -65,12 +61,8 @@
                         <label for="inputDiscount" class="form-label">Categoria</label>
                         <select class="form-select" id="categorySelect" name="category">
                          <% categories.forEach(category => { %>
-                            <% if (category.category != "Sin categoria"){ %>
-                                <% if (product.categoryId != "100"){ %>
-                                <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
-                                <% } %>
-                        <% }}) %>
-                        <option value="100">Sin categoria</option>
+                            <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
+                        <% }) %>
                             
                         </select>
                         

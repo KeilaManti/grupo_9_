@@ -49,9 +49,7 @@ module.exports = {
                 }
             })
 
-            db.Category.update({
-                category : "Sin categoria"
-            }, {
+            db.Category.destroy({
                 where: {
                     id: req.params.id
                 }
@@ -61,7 +59,7 @@ module.exports = {
             })
             .catch((err) => console.log(err));
                     
-    } 
+        } 
     },
     addBrand: (req, res)=>{
         
@@ -108,9 +106,7 @@ module.exports = {
                 }
             })
 
-            db.Brand.update({
-                brand : "Sin marca"
-            }, {
+            db.Brand.destroy({
                 where: {
                     id: req.params.id
                 }
@@ -132,16 +128,7 @@ module.exports = {
                 {association: "brand"}
             ]
         })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
+            .then(product => {
                 let categoryPromise = db.Category.findAll()
                 let brandPromise = db.Brand.findAll()
 
@@ -151,33 +138,22 @@ module.exports = {
                         product,
                         categories,
                         brands,
-                        destacadosSlider: products,
                         session: req.session
                     })
                 })
             })
-        })
     },
     filterBrands: (req,res)=>{
         db.Product.findAll({
             where: {
-                categoryId: req.params.id,
+                brandId: req.params.id,
             },
             include: [
                 {association: "category"},
                 {association: "brand"}
             ]
         })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
+            .then(product => {
                 let categoryPromise = db.Category.findAll()
                 let brandPromise = db.Brand.findAll()
 
@@ -187,11 +163,9 @@ module.exports = {
                         product,
                         categories,
                         brands,
-                        destacadosSlider: products,
                         session: req.session
                     })
                 })
             })
-        })
     }
 }
